@@ -1,0 +1,11 @@
+name: openresty_static_cache_purge
+
+services:
+  openresty:
+    image: openresty/openresty:1.25.3.1-3-alpine
+    volumes:
+      - ./openresty/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./openresty/static/:/data/static/
+      - ./openresty/modules/:/usr/local/openresty/site/lualib/resty/
+    ports:
+      - 80:80
